@@ -1,4 +1,4 @@
-# cf-problem-solutions
+# cp-problem-solutions
 
 
 The sole purpose of this repo is to keep records of my solutions to cf problems I solve and contest problems I participate.
