@@ -9,4 +9,6 @@ def inp():
 def sswrite(val):
     sys.stdout.write(str(val) + '\n')
 
+def intmap():
+    return map(int, inp().split(' '))
 
