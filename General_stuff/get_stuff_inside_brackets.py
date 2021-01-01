@@ -1,7 +1,6 @@
 # used this for google kickstart 2020 round B problem C
 
-def match_brackets():
-    s = input()
+def match_brackets(s):
     flag = False
     opens = 0
     start_idx = end_idx = 0
