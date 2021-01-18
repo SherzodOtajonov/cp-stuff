@@ -13,17 +13,16 @@ def intmap():
     return map(int, inp().split(' '))
 
 
-
 t = int(inp())
 
-def solve(n, a):
+def solve(n, d):
+    l = list(intmap())
+    prev = d
     for i in range(n-1, -1, -1):
-        if i+a[i] < n:
-            a[i] += a[i+a[i]]
-    return max(a)
+        prev = (prev // l[i]) * l[i]
+    return prev
 
 
-for i in range(t):
-    n = int(inp())
-    a = list(intmap())
-    print(solve(n, a))
+for i in range(1, t+1):
+    n, d = intmap()
+    sswrite('Case #{}: {}'.format(i, solve(n, d)))

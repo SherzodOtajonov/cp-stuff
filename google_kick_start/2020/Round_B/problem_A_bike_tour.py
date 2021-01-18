@@ -11,19 +11,20 @@ def sswrite(val):
 
 def intmap():
     return map(int, inp().split(' '))
-
-
+    
+###### solution ########
 
 t = int(inp())
 
-def solve(n, a):
-    for i in range(n-1, -1, -1):
-        if i+a[i] < n:
-            a[i] += a[i+a[i]]
-    return max(a)
-
-
-for i in range(t):
+def solve(n):
+    h = list(intmap())
+    
+    c = 0
+    for i in range(1, n-1):
+        if h[i] > h[i-1] and h[i] > h[i+1]:
+            c+=1
+    return c
+for i in range(1, t+1):
     n = int(inp())
-    a = list(intmap())
-    print(solve(n, a))
+    sswrite('Case #{}: {}'.format(i, solve(n)))
+
