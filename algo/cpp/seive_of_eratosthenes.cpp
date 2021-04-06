@@ -1,18 +1,28 @@
-// s`ourse: https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
-vector<int> seive(int n) {     
-    vector<char> A(n+1, true);
-    A[0] = A[1] = false;
-    for (int i = 2; i <= n; i++) {
-        if (A[i] && (long long)i * i <= n) {
+// sourse: https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+vector<ll> primes;
+void seive(){
+    int n; cin>>n;
+    vector<char> is_prime(n+1, true);
+    is_prime[0] = is_prime[1] = false;
+    for (int i = 2; i * i <= n; i++) {
+        if (is_prime[i]) {
             for (int j = i * i; j <= n; j += i)
-                A[j] = false;
+                is_prime[j] = false;
         }
     }
-    vector<int> r;
-    for (int i=0; i<is_prime.size();i++){
-        if (is_prime[i]) r.push_back(i);
+    for(int i=0; i<n; i++){
+        if(is_prime[i]) primes.push_back(i); 
     }
-    return r;
 }
 
-
+int main(){
+    seive();
+    for(ll x: primes) cout<<x<<" ";
+    return 0;
+}
