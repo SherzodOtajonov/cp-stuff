@@ -6,9 +6,8 @@ using namespace std;
 #define ll long long
 
 vector<ll> primes;
-void seive(){
-    int n; cin>>n;
-    vector<char> is_prime(n+1, true);
+void seive(int n){
+    vector<bool> is_prime(n+1, true);
     is_prime[0] = is_prime[1] = false;
     for (int i = 2; i * i <= n; i++) {
         if (is_prime[i]) {
@@ -16,13 +15,14 @@ void seive(){
                 is_prime[j] = false;
         }
     }
-    for(int i=0; i<n; i++){
+    for(int i = 0; i < n; i++){
         if(is_prime[i]) primes.push_back(i); 
     }
 }
 
 int main(){
-    seive();
-    for(ll x: primes) cout<<x<<" ";
+    int n; cin >> n;
+    seive(n);
+    for(ll x: primes) cout << x << " ";
     return 0;
 }
